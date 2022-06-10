@@ -1,0 +1,35 @@
+@import "../variables";
+
+.hero {
+	display: flex;
+	align-items: center;
+	gap: $spacingProXXS;
+	height: 100vh;
+
+	@include media-small-max {
+		align-items: flex-start;
+		justify-content: center;
+		gap: $spacingRemL;
+		flex-direction: column-reverse;
+	}
+
+	&__greeting {
+		gap: $spacingRemL;
+		@include flex-column;
+
+		@for $i from 1 to 3 {
+			.greeting__item:not(.hero__button):nth-child(#{$i}) {
+				animation-delay: calc($i * $animationDelay);
+			}
+		}
+	}
+
+  &__button {
+    animation-delay: 0.75s;
+  }
+
+	&__picture {
+		background: $colorGradient;
+		background-size: 200% 200%;
+	}
+}

@@ -1,0 +1,33 @@
+@import "./variables";
+
+.button {
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	padding: $spacingEmL;
+	border: $borderStyle;
+	border-radius: $borderRadiusL;
+	-webkit-border-radius: $borderRadiusL;
+	-moz-border-radius: $borderRadiusL;
+	-ms-border-radius: $borderRadiusL;
+	-o-border-radius: $borderRadiusL;
+	cursor: pointer;
+	transition: $transition;
+	-webkit-transition: $transition;
+	-moz-transition: $transition;
+	-ms-transition: $transition;
+	-o-transition: $transition;
+	letter-spacing: 1.5px;
+	color: var(--colorHeadlineSecondary);
+	background-color: var(--colorBackgroundSecondary);
+
+	&:hover,
+	&:focus {
+		border-color: var(--colorBackgroundSecondary);
+		color: var(--colorHeadlinePrimary) !important;
+		outline: none;
+		background-color: var(--colorBackgroundPrimary);
+	}
+}

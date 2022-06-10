@@ -1,0 +1,61 @@
+@import "./variables";
+
+/*====================================
+=========== Font Faces ===============
+======================================*/
+
+@font-face {
+	font-family: FuturaBold;
+	src: url(../assets/fonts/FuturaBold.otf);
+	font-display: swap;
+}
+
+@font-face {
+	font-family: Souvenir;
+	src: url(../assets/fonts/SouvenirEF-Medium.otf);
+	font-display: swap;
+}
+
+/*========================================
+=========== Typography Styling ===========
+==========================================*/
+
+$headlinesFont: FuturaBold;
+$textFont: Souvenir;
+
+h1 {
+	font-family: $headlinesFont, sans-serif;
+	font-size: clamp(3rem, 2.7313rem + 1.3433vw, 5.25rem);
+	font-weight: 800;
+}
+
+h2 {
+	font-family: $headlinesFont, sans-serif;
+	font-size: clamp(1.5rem, 1.3209rem + 0.8955vw, 3rem);
+	font-weight: 600;
+}
+
+h3 {
+	font-family: $headlinesFont, sans-serif;
+	font-size: clamp(1.25rem, 1rem + 0.8955vw, 2.75rem);
+	font-weight: 500;
+}
+
+h4 {
+	font-family: $headlinesFont, sans-serif;
+	font-size: clamp(1rem, 0.8rem + 0.8955vw, 2.5rem);
+	font-weight: 500;
+}
+
+p,
+a,
+span,
+li {
+	font-family: $textFont, sans-serif;
+	font-size: clamp(1rem, 0.8955rem + 0.5224vw, 1.875rem);
+	font-weight: 200;
+}
+
+strong {
+  font-weight: 900;
+}

@@ -1,0 +1,27 @@
+/* Microsoft Edge */
+@mixin edge {
+	@supports (-ms-ime-align: auto) {
+    @content;
+	}
+}
+
+/* Mozilla Firefox */
+@mixin firefox {
+	@-moz-document url-prefix() {
+    @content;
+	}
+}
+
+/* Safari */
+@mixin safari {
+	@media not all and (min-resolution: 0.001dpcm) {
+    @content;
+	}
+}
+
+/* Chrominum */
+@mixin chrome {
+	@media screen and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
+    @content;
+	}
+}

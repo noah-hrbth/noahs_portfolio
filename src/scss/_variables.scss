@@ -1,0 +1,98 @@
+@import "./mixins.scss";
+
+/*====================================
+=========== Colors ===================
+======================================*/
+
+/* need to be CSS variables, cause SASS variables can't change their value */
+:root {
+	--colorBackgroundPrimary: #fffffe;
+	--colorBackgroundSecondary: #0f0e17;
+	--colorHeadlinePrimary: #0f0e17;
+	--colorHeadlineSecondary: #fffffe;
+	--colorTextPrimary: #2e2f3e;
+	--colorTextSecondary: #a7a9be;
+}
+
+/*========= Don't change ==========*/
+$colorBlack: #000000;
+$colorWhite: #fffffe;
+$colorPrimary: #f25f4c;
+$colorSecondary: #ff8906;
+$colorTertiary: #e53170;
+$colorGradient: linear-gradient(
+	-45deg,
+	$colorSecondary,
+	$colorPrimary,
+	$colorTertiary
+);
+
+/*====================================
+=========== Spacing ==================
+======================================*/
+:root {
+  --doc-height: 100%;
+}
+
+$spacingRemXS: 0.25rem;
+$spacingRemS: 0.5rem;
+$spacingRemM: 0.75rem;
+$spacingRemL: 1rem;
+$spacingRemXL: 1.5rem;
+$spacingRemXXL: 2rem;
+
+$spacingPxXL: 100px;
+
+$spacingEmXS: 0.25em;
+$spacingEmS: 0.5em;
+$spacingEmM: 0.75em;
+$spacingEmL: 1em;
+$spacingEmXL: 1.5em;
+$spacingEmXXL: 2em;
+
+$spacingProXXS: 10%;
+$spacingProXS: 25%;
+$spacingProS: 50%;
+$spacingProM: 75%;
+$spacingProL: 100%;
+
+$spacingVwXS: 5vw;
+$spacingVwS: 10vw;
+$spacingVwM: 15vw;
+$spacingVwL: 20vw;
+
+$heightHeader: 5rem;
+
+/*====================================
+=========== Borders ==================
+======================================*/
+$borderStyle: 4px solid var(--colorBackgroundSecondary);
+$borderRadiusS: 5px;
+$borderRadiusM: 10px;
+$borderRadiusL: 25px;
+
+/*====================================
+=========== Viewport =================
+======================================*/
+$viewportSmallMax: 670px;
+$viewportMediumMin: 671px;
+$viewportMediumMax: 1007px;
+$viewportLargeMin: 1008px;
+
+/*====================================
+=========== Animation ================
+======================================*/
+$transition: 0.3s;
+$transitionLong: 0.5s;
+$transitionLonger: 0.75s;
+
+$animationDelayShort: 0.15s;
+$animationDelay: 0.25s;
+$animationDelayMedium: 0.75s;
+$animationDelayLong: 0.5s;
+$animationDelayLonger: 1s;
+
+$animationPxS-: -20px;
+$animationPxS: 20px; 
+
+$opacityLow: 0.3;

@@ -1,0 +1,84 @@
+@import "./variables";
+
+::selection {
+	color: var(--colorBackgroundPrimary);
+	background-color: var(--colorBackgroundSecondary);
+}
+
+:target {
+  scroll-margin-top: calc($heightHeader * 1.5);
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: var(--colorBackgroundPrimary);
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: $borderRadiusS;
+	-webkit-border-radius: $borderRadiusS;
+	-moz-border-radius: $borderRadiusS;
+	-ms-border-radius: $borderRadiusS;
+	-o-border-radius: $borderRadiusS;
+	background: $colorGradient;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: var(--colorBackgroundSecondary);
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	display: grid;
+	grid-template-columns: $spacingVwXS 1fr 1fr $spacingVwXS;
+
+	header,
+	main,
+	footer {
+		width: 100%;
+		transition: $transition;
+		-webkit-transition: $transition;
+		-moz-transition: $transition;
+		-ms-transition: $transition;
+		-o-transition: $transition;
+		grid-column: 2 / span 2;
+	}
+
+  main {
+    display: grid;
+    gap: min($spacingVwL, $spacingPxXL);
+  }
+}
+
+a {
+	transition: $transition;
+	-webkit-transition: $transition;
+	-moz-transition: $transition;
+	-ms-transition: $transition;
+	-o-transition: $transition;
+
+	&:hover,
+	&:focus {
+		color: var(--colorBackgroundPrimary) !important;
+		outline: none;
+		background-color: var(--colorBackgroundSecondary);
+	}
+}
+
+label {
+	cursor: pointer;
+}
+
+.bionic-text {
+	font-weight: inherit !important;
+
+	&--enabled {
+		font-weight: 900 !important;
+	}
+}

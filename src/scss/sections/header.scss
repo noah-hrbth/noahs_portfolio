@@ -1,0 +1,240 @@
+@import "../variables";
+
+header {
+	position: fixed;
+	top: $spacingRemL;
+	right: calc($spacingVwXS - $spacingRemL);
+	left: calc($spacingVwXS - $spacingRemL);
+	z-index: 1000;
+	display: grid;
+	align-items: center;
+	width: unset !important;
+	height: $heightHeader;
+	padding: $spacingRemL;
+	border-radius: $borderRadiusS;
+	-webkit-border-radius: $borderRadiusS;
+	-moz-border-radius: $borderRadiusS;
+	-ms-border-radius: $borderRadiusS;
+	-o-border-radius: $borderRadiusS;
+	transition: $transition;
+	-webkit-transition: $transition;
+	-moz-transition: $transition;
+	-ms-transition: $transition;
+	-o-transition: $transition;
+
+	&.scrolled {
+		background-color: var(--colorBackgroundSecondary);
+
+		.navigation {
+			&__link {
+				color: var(--colorTextSecondary);
+
+				&::after {
+					background-color: var(--colorBackgroundPrimary);
+				}
+
+				&:hover,
+				&:focus {
+					color: var(--colorBackgroundSecondary) !important;
+					outline: none;
+					background-color: var(--colorBackgroundPrimary);
+				}
+			}
+
+			.settings {
+				&__button {
+					&:hover,
+					&:focus {
+						outline: none;
+						background-color: var(--colorBackgroundPrimary);
+
+						svg {
+							fill: var(--colorBackgroundSecondary) !important;
+						}
+					}
+
+					svg {
+						fill: var(--colorBackgroundPrimary);
+					}
+				}
+			}
+		}
+	}
+
+	.navigation {
+		@for $i from 1 to 5 {
+			&__item:nth-child(#{$i}) {
+				animation-delay: calc($i * $animationDelay);
+			}
+		}
+
+		&__list {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: $spacingRemL;
+			margin: -$spacingEmXS;
+		}
+
+		&__link {
+			font-family: $headlinesFont, sans-serif;
+			font-size: clamp(1.25rem, 1rem + 0.8955vw, 2.75rem);
+			font-weight: 500;
+			padding: $spacingEmXS;
+			border-radius: $borderRadiusS;
+			-webkit-border-radius: $borderRadiusS;
+			-moz-border-radius: $borderRadiusS;
+			-ms-border-radius: $borderRadiusS;
+			-o-border-radius: $borderRadiusS;
+		}
+
+		&__icon {
+			display: none;
+		}
+
+		.settings {
+			&__button {
+				all: unset;
+				display: block;
+				width: 3rem;
+				height: 3rem;
+				border-radius: $borderRadiusS;
+				-webkit-border-radius: $borderRadiusS;
+				-moz-border-radius: $borderRadiusS;
+				-ms-border-radius: $borderRadiusS;
+				-o-border-radius: $borderRadiusS;
+				cursor: pointer;
+				transition: $transition;
+				-webkit-transition: $transition;
+				-moz-transition: $transition;
+				-ms-transition: $transition;
+				-o-transition: $transition;
+
+				&:hover,
+				&:focus {
+					outline: none;
+					background-color: var(--colorBackgroundSecondary);
+
+					svg {
+						fill: var(--colorBackgroundPrimary) !important;
+					}
+				}
+
+				svg {
+					transition: $transition;
+					-webkit-transition: $transition;
+					-moz-transition: $transition;
+					-ms-transition: $transition;
+					-o-transition: $transition;
+					fill: var(--colorBackgroundSecondary);
+				}
+			}
+		}
+	}
+
+	.resume-button {
+		display: none;
+	}
+}
+
+/*====================================
+=========== Mobile Styling ========
+======================================*/
+@include media-small-max {
+	header {
+		top: unset;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		border-radius: $borderRadiusS $borderRadiusS 0 0 !important;
+		-webkit-border-radius: $borderRadiusS $borderRadiusS 0 0 !important;
+		-moz-border-radius: $borderRadiusS $borderRadiusS 0 0 !important;
+		-ms-border-radius: $borderRadiusS $borderRadiusS 0 0 !important;
+		-o-border-radius: $borderRadiusS $borderRadiusS 0 0 !important;
+		background-color: var(--colorBackgroundSecondary);
+
+		.navigation {
+			&__link {
+				display: none;
+			}
+
+			&__icon {
+				display: block;
+
+				&:hover svg,
+				&:focus svg {
+					background-color: var(--colorBackgroundPrimary);
+					fill: var(--colorBackgroundSecondary);
+				}
+
+				svg {
+					width: 3.5rem;
+					height: 3.5rem;
+					aspect-ratio: 1;
+					border-radius: $borderRadiusS;
+					-webkit-border-radius: $borderRadiusS;
+					-moz-border-radius: $borderRadiusS;
+					-ms-border-radius: $borderRadiusS;
+					-o-border-radius: $borderRadiusS;
+					transition: $transition;
+					-webkit-transition: $transition;
+					-moz-transition: $transition;
+					-ms-transition: $transition;
+					-o-transition: $transition;
+					fill: var(--colorBackgroundPrimary);
+				}
+			}
+
+			.settings {
+				&__button {
+					svg {
+						border-radius: $borderRadiusS;
+						-webkit-border-radius: $borderRadiusS;
+						-moz-border-radius: $borderRadiusS;
+						-ms-border-radius: $borderRadiusS;
+						-o-border-radius: $borderRadiusS;
+						transition: $transition;
+						-webkit-transition: $transition;
+						-moz-transition: $transition;
+						-ms-transition: $transition;
+						-o-transition: $transition;
+						fill: var(--colorBackgroundPrimary);
+					}
+
+					&:hover svg,
+					&:focus svg {
+						background-color: var(--colorBackgroundPrimary);
+						fill: var(--colorBackgroundSecondary) !important;
+					}
+				}
+			}
+		}
+
+		.resume-button {
+			position: fixed;
+			right: max($spacingRemS, calc($spacingVwXS - $spacingRemL));
+			bottom: 10rem;
+			display: block;
+			width: fit-content;
+			padding: $spacingRemXS;
+			animation-delay: 0s;
+
+			&:hover svg,
+			&:focus svg {
+				fill: var(--colorBackgroundSecondary);
+			}
+
+			svg {
+				width: 3rem;
+				height: 3rem;
+				aspect-ratio: 1;
+				transition: $transition;
+				-webkit-transition: $transition;
+				-moz-transition: $transition;
+				-ms-transition: $transition;
+				-o-transition: $transition;
+				fill: var(--colorBackgroundPrimary);
+			}
+		}
+	}
+}

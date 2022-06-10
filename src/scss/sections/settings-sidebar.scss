@@ -1,0 +1,239 @@
+@import "../variables";
+
+.settings-sidebar {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 1000;
+	display: flex;
+	align-items: center;
+	gap: $spacingRemXXL;
+	flex-direction: column;
+	max-width: min-content;
+	padding: $spacingRemXXL;
+	transition: $transitionLonger;
+	-webkit-transition: $transitionLonger;
+	-moz-transition: $transitionLonger;
+	-ms-transition: $transitionLonger;
+	-o-transition: $transitionLonger;
+	transition-delay: $animationDelayMedium;
+	transform: translateX(100%);
+	-webkit-transform: translateX(100%);
+	-moz-transform: translateX(100%);
+	-ms-transform: translateX(100%);
+	-o-transform: translateX(100%);
+	opacity: 0;
+	background-color: var(--colorBackgroundSecondary);
+
+	@for $i from 1 to 3 {
+		&__item:nth-child(#{$i}) {
+			animation-delay: calc($i * $animationDelayShort);
+		}
+	}
+
+	&--active {
+		transition-delay: 0s;
+		transform: translateX(0);
+		-webkit-transform: translateX(0);
+		-moz-transform: translateX(0);
+		-ms-transform: translateX(0);
+		-o-transform: translateX(0);
+		opacity: 1;
+
+		& + main {
+			opacity: $opacityLow;
+		}
+	}
+
+	.close-button {
+		all: unset;
+		display: block;
+		width: 3rem;
+		height: 3rem;
+		border-radius: $borderRadiusS;
+		-webkit-border-radius: $borderRadiusS;
+		-moz-border-radius: $borderRadiusS;
+		-ms-border-radius: $borderRadiusS;
+		-o-border-radius: $borderRadiusS;
+		cursor: pointer;
+		transition: $transition;
+		-webkit-transition: $transition;
+		-moz-transition: $transition;
+		-ms-transition: $transition;
+		-o-transition: $transition;
+
+		&:hover,
+		&:focus {
+			outline: none;
+			background-color: var(--colorBackgroundPrimary);
+
+			svg {
+				fill: var(--colorBackgroundSecondary) !important;
+			}
+		}
+
+		svg {
+			transition: $transition;
+			-webkit-transition: $transition;
+			-moz-transition: $transition;
+			-ms-transition: $transition;
+			-o-transition: $transition;
+			transform: rotate(-90deg);
+			-webkit-transform: rotate(-90deg);
+			-moz-transform: rotate(-90deg);
+			-ms-transform: rotate(-90deg);
+			-o-transform: rotate(-90deg);
+			fill: var(--colorBackgroundPrimary);
+		}
+	}
+
+	&__list {
+		display: flex;
+		align-items: center;
+		gap: $spacingRemL;
+		flex-direction: column;
+	}
+
+	&__item {
+		padding: $spacingEmXS;
+		border-radius: $borderRadiusS;
+		-webkit-border-radius: $borderRadiusS;
+		-moz-border-radius: $borderRadiusS;
+		-ms-border-radius: $borderRadiusS;
+		-o-border-radius: $borderRadiusS;
+		transition: $transition;
+		-webkit-transition: $transition;
+		-moz-transition: $transition;
+		-ms-transition: $transition;
+		-o-transition: $transition;
+		text-align: center;
+
+		&:focus-within,
+		&:hover {
+			outline: none;
+			background-color: var(--colorBackgroundPrimary);
+
+			h4 {
+				color: var(--colorBackgroundSecondary) !important;
+			}
+
+			.theme-toggle {
+				&__checkbox:not(:checked) {
+					color: var(--colorBackgroundSecondary);
+				}
+			}
+
+			.adhd-toggle {
+				svg {
+					fill: var(--colorBackgroundSecondary);
+				}
+			}
+		}
+
+		h4 {
+			color: var(--colorTextSecondary) !important;
+		}
+	}
+
+	.theme-toggle {
+		height: 4rem;
+	}
+
+	.adhd-toggle {
+		@include flex-center-center;
+
+		&__checkbox {
+			position: absolute;
+			width: 0;
+			height: 0;
+			opacity: 0;
+		}
+
+		&__checkbox:checked + svg {
+			path {
+				&:nth-child(1) {
+					transform: translate(30px, -30px);
+					-webkit-transform: translate(30px, -30px);
+					-moz-transform: translate(30px, -30px);
+					-ms-transform: translate(30px, -30px);
+					-o-transform: translate(30px, -30px);
+				}
+
+				&:nth-child(2) {
+					transform: translate(-30px, -30px);
+					-webkit-transform: translate(-30px, -30px);
+					-moz-transform: translate(-30px, -30px);
+					-ms-transform: translate(-30px, -30px);
+					-o-transform: translate(-30px, -30px);
+				}
+
+				&:nth-child(3) {
+					transform: translate(-30px, 30px);
+					-webkit-transform: translate(-30px, 30px);
+					-moz-transform: translate(-30px, 30px);
+					-ms-transform: translate(-30px, 30px);
+					-o-transform: translate(-30px, 30px);
+				}
+
+				&:nth-child(4) {
+					transform: translate(30px, 30px);
+					-webkit-transform: translate(30px, 30px);
+					-moz-transform: translate(30px, 30px);
+					-ms-transform: translate(30px, 30px);
+					-o-transform: translate(30px, 30px);
+				}
+			}
+		}
+
+		svg {
+			width: 4rem;
+			height: 4rem;
+			transition: $transition;
+			-webkit-transition: $transition;
+			-moz-transition: $transition;
+			-ms-transition: $transition;
+			-o-transition: $transition;
+			fill: var(--colorBackgroundPrimary);
+
+			path {
+				transition: $transition;
+				-webkit-transition: $transition;
+				-moz-transition: $transition;
+				-ms-transition: $transition;
+				-o-transition: $transition;
+			}
+		}
+
+		span {
+			color: var(--colorTextSecondary);
+		}
+	}
+
+	.adhd-example-text {
+		color: var(--colorTextSecondary);
+
+		&::selection, strong::selection {
+			color: var(--colorBackgroundSecondary) !important;
+			background-color: var(--colorBackgroundPrimary) !important;
+		}
+
+		&.animation__slide-in-from-top {
+			animation-delay: 0s;
+		}
+	}
+}
+
+/*====================================
+=========== Mobile Styling ========
+======================================*/
+@include media-small-max {
+	.settings-sidebar {
+		flex-direction: column-reverse;
+		padding-bottom: $spacingRemL;
+
+		&__list {
+			flex-direction: column-reverse;
+		}
+	}
+}

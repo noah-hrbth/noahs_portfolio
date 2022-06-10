@@ -1,0 +1,56 @@
+/*====================================
+=========== Display Flex ===========
+======================================*/
+@mixin flex-column {
+	display: flex;
+	flex-direction: column;
+}
+
+@mixin flex-center-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/*====================================
+=========== Position Absolute ========
+======================================*/
+@mixin abs-inset {
+	position: absolute;
+	inset: 0;
+}
+
+@mixin abs-top {
+	position: absolute;
+	top: 0;
+}
+
+@mixin abs-right {
+	position: absolute;
+	right: 0;
+}
+
+@mixin abs-bottom {
+	position: absolute;
+	bottom: 0;
+}
+
+@mixin abs-left {
+	position: absolute;
+	left: 0;
+}
+
+/*====================================
+=========== Media Query ========
+======================================*/
+@mixin media-small-max {
+	@media screen and (max-width: $viewportSmallMax) {
+		@content;
+	}
+}
+
+@mixin media-medium-max {
+	@media screen and (max-width: $viewportMediumMax) {
+		@content;
+	}
+}
